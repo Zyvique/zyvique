@@ -5,19 +5,25 @@
     --color-bg-alt: #eae7e0;
     --color-ink: #111111;
     --color-muted: #6b6b66;
-    --color-accent: #e8542e;
     --color-border: #dddad2;
 
     --font-display: var(--font-geist-pixel-grid), monospace;
     --font-sans: var(--font-geist-sans), sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: var(--color-bg);
     color: var(--color-ink);
 }
+button {
+    cursor: pointer;
+}
 
 ::selection {
-    background: var(--color-accent);
-    color: #ffffff;
+    background: var(--color-ink);
+    color: var(--color-bg);
 }

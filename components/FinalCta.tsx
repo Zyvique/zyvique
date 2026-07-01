@@ -31,8 +31,8 @@ export default function FinalCta() {
           Let&apos;s build something your customers will remember.
         </p>
         <div className="mt-8">
-          {/* TODO: point to a real contact/project-intake flow once it exists */}
-          <PillButton href="#">Start a Project</PillButton>
+          {/* TODO: wire this up to a real contact/project-intake flow once it exists */}
+          <PillButton onClick={() => {}}>Start a Project</PillButton>
         </div>
       </motion.div>
     </section>

@@ -4,6 +4,10 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import PillButton from "./PillButton";
 
+function scrollToSection(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
+
 // Small, scattered copies of the particle art — meant to feel like loose
 // floating specks behind the headline, not one single graphic.
 const PARTICLES = [
@@ -26,7 +30,7 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-6 inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 text-xs font-medium text-muted"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+          <span className="h-1.5 w-1.5 rounded-full bg-ink" />
           Websites for local businesses
         </motion.span>
 
@@ -93,7 +97,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-8"
         >
-          <PillButton href="#start">Start a Project</PillButton>
+          <PillButton onClick={() => scrollToSection("start")}>
+            Start a Project
+          </PillButton>
         </motion.div>
       </div>
     </section>

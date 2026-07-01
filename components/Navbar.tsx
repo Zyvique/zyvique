@@ -6,10 +6,14 @@ import { Menu, X } from "lucide-react";
 import PillButton from "./PillButton";
 
 const NAV_LINKS = [
-  { label: "Work", href: "#work" },
-  { label: "Services", href: "#services" },
-  { label: "Company", href: "#company" },
+  { label: "Work", id: "work" },
+  { label: "Services", id: "services" },
+  { label: "Company", id: "company" },
 ];
+
+function scrollToSection(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -31,9 +35,10 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a
-          href="#top"
-          className="flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-md"
+        <button
+          type="button"
+          onClick={() => scrollToSection("top")}
+          className="flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink rounded-md"
         >
           <Image
             src="/logo.png"
@@ -42,23 +47,24 @@ export default function Navbar() {
             height={28}
             className="h-7 w-7"
           />
-        </a>
+        </button>
 
         <ul className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-sm text-muted transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
+            <li key={link.id}>
+              <button
+                type="button"
+                onClick={() => scrollToSection(link.id)}
+                className="text-sm text-muted transition-colors hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink rounded-sm"
               >
                 {link.label}
-              </a>
+              </button>
             </li>
           ))}
         </ul>
 
         <div className="hidden items-center gap-6 md:flex">
-          <PillButton href="#start" icon={null}>
+          <PillButton onClick={() => scrollToSection("start")} icon={null}>
             Start a Project
           </PillButton>
         </div>
@@ -66,7 +72,7 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setMenuOpen((open) => !open)}
-          className="flex h-9 w-9 items-center justify-center rounded-md border border-border md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+          className="flex h-9 w-9 items-center justify-center rounded-md border border-border md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink"
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
         >
@@ -82,20 +88,26 @@ export default function Navbar() {
         <div className="border-t border-border bg-bg px-6 py-4 md:hidden">
           <ul className="flex flex-col gap-4">
             {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
+              <li key={link.id}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMenuOpen(false);
+                    scrollToSection(link.id);
+                  }}
                   className="text-sm text-muted transition-colors hover:text-ink"
                 >
                   {link.label}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
           <div className="mt-4">
             <PillButton
-              href="#start"
+              onClick={() => {
+                setMenuOpen(false);
+                scrollToSection("start");
+              }}
               icon={null}
               className="w-full justify-center flex items-center"
             >
