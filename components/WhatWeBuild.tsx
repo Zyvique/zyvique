@@ -1,17 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Building2,
-  LayoutTemplate,
-  ShoppingBag,
-  RefreshCw,
-} from "lucide-react";
+import { Building2, LayoutTemplate, RefreshCw } from "lucide-react";
 
 const ITEMS = [
   { label: "Business websites", Icon: Building2 },
   { label: "Landing pages", Icon: LayoutTemplate },
-  { label: "Online stores", Icon: ShoppingBag },
   { label: "Website refreshes", Icon: RefreshCw },
 ];
 
@@ -29,7 +23,7 @@ export default function WhatWeBuild() {
           What we build.
         </motion.h2>
 
-        <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3">
           {ITEMS.map((item, i) => (
             <motion.div
               key={item.label}
