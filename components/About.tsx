@@ -12,8 +12,21 @@ const STATS = [
 
 export default function About() {
   return (
-    <section id="company" className="px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-3xl text-center">
+    <section
+      id="company"
+      className="relative overflow-hidden px-6 py-24 md:py-32"
+    >
+      {/* Extra ascii art flourish in the vacant corner, purely visual */}
+      <Image
+        src="/particles.png"
+        alt=""
+        width={500}
+        height={500}
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-8 -left-8 hidden w-32 opacity-15 mix-blend-multiply sm:block md:w-40"
+      />
+
+      <div className="relative mx-auto max-w-3xl text-center">
         {/* Ascii art sits behind the headline, text stays on top */}
         <div className="relative">
           <div

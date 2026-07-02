@@ -43,8 +43,18 @@ function scrollToSection(id: string) {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border px-6 py-16">
-      <div className="mx-auto flex max-w-6xl flex-col gap-12 md:flex-row md:justify-between">
+    <footer className="relative overflow-hidden border-t border-border px-6 py-16">
+      {/* Extra ascii art flourish in the vacant corner, purely visual */}
+      <Image
+        src="/tattoo.png"
+        alt=""
+        width={503}
+        height={496}
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-12 right-0 hidden w-40 opacity-10 mix-blend-multiply sm:block md:w-52"
+      />
+
+      <div className="relative mx-auto flex max-w-6xl flex-col gap-12 md:flex-row md:justify-between">
         <div className="max-w-xs">
           <button
             type="button"

@@ -18,7 +18,7 @@ const PROJECTS: Project[] = [
   {
     name: "Xentea Cafe",
     tag: "Café Website",
-    image: "/projects/xentea-cafe.jpg",
+    image: "/projects/xentea-cafe.png",
     video: "/projects/xentea-cafe.mp4",
     description:
       "A milk tea café in Mabini, Batangas, serving hand-crafted drinks since 2019. The site shares their menu, story, and hours so local tea lovers always know where to find them.",
@@ -27,7 +27,7 @@ const PROJECTS: Project[] = [
   {
     name: "Pharmacy POS",
     tag: "Point-of-Sale System",
-    image: "/projects/pharmacy-pos.jpg",
+    image: "/projects/pharmacy-pos.png",
     video: "/projects/pharmacy-pos.mp4",
     description:
       "A point-of-sale system built for pharmacies, designed to speed up checkout and keep inventory and sales organized in one place.",
@@ -35,7 +35,7 @@ const PROJECTS: Project[] = [
   {
     name: "Persona 3",
     tag: "Personal Portfolio",
-    image: "/projects/persona-3.jpg",
+    image: "/projects/persona-3.png",
     video: "/projects/persona-3.mp4",
     description:
       "A personal portfolio built for Persona 3 fans — a passion project blending the game's moody aesthetic with a personal showcase.",
@@ -43,7 +43,7 @@ const PROJECTS: Project[] = [
   {
     name: "Noovo Life",
     tag: "Business Website",
-    image: "/projects/noovo-life.jpg",
+    image: "/projects/noovo-life.png",
     video: "/projects/noovo-life.mp4",
     description:
       "A business website for a company selling high-quality RVs with fully-equipped living setups, built to showcase their fleet and drive inquiries.",
@@ -70,18 +70,44 @@ export default function Work() {
   }, [activeProject]);
 
   return (
-    <section id="work" className="px-6 py-24 md:py-32">
-      <div className="mx-auto max-w-6xl">
+    <section id="work" className="relative overflow-hidden px-6 py-24 md:py-32">
+      {/* Extra ascii art flourish in the vacant corner, purely visual */}
+      <Image
+        src="/stars.png"
+        alt=""
+        width={500}
+        height={500}
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-10 -left-10 hidden w-40 opacity-10 mix-blend-multiply sm:block md:w-52"
+      />
+
+      <div className="relative mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.6 }}
-            className="font-display text-3xl uppercase leading-[0.95] tracking-[0.05em] text-ink sm:text-4xl md:text-5xl"
-          >
-            Our work speaks for itself.
-          </motion.h2>
+          <div className="relative mx-auto flex max-w-md justify-center">
+            {/* Ascii art sits behind the headline, text stays on top */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center"
+            >
+              <Image
+                src="/tattoo.png"
+                alt=""
+                width={503}
+                height={496}
+                className="w-48 opacity-15 mix-blend-multiply sm:w-56 md:w-64"
+              />
+            </div>
+
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.6 }}
+              className="relative z-10 font-display text-3xl uppercase leading-[0.95] tracking-[0.05em] text-ink sm:text-4xl md:text-5xl"
+            >
+              Our work speaks for itself.
+            </motion.h2>
+          </div>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}

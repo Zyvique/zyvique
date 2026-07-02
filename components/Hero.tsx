@@ -102,6 +102,16 @@ export default function Hero() {
           </PillButton>
         </motion.div>
       </div>
+
+      {/* Extra ascii art flourish in the vacant corner, purely visual */}
+      <Image
+        src="/tattoo.png"
+        alt=""
+        width={503}
+        height={496}
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-10 -right-10 hidden w-48 opacity-10 mix-blend-multiply sm:block md:w-60"
+      />
     </section>
   );
 }

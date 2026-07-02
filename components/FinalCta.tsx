@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import PillButton from "./PillButton";
 import DotGrid from "./DotGrid";
@@ -15,6 +16,16 @@ export default function FinalCta() {
         cols={20}
         fade="radial"
         className="pointer-events-none absolute inset-0 h-full w-full text-ink/20"
+      />
+
+      {/* Extra ascii art flourish in the vacant corner, purely visual */}
+      <Image
+        src="/cellular.png"
+        alt=""
+        width={464}
+        height={538}
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-8 right-6 hidden w-32 opacity-10 mix-blend-multiply sm:block md:right-16 md:w-40"
       />
 
       <motion.div
